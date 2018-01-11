@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/seanceItemBackground"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="1dp">
+
+
+    <TextView
+        android:text="Avangers: Infinity war"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/ticket_view_time"
+        android:id="@+id/ticket_view_film" />
+
+    <TextView
+        android:text="Small hall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ticket_view_hall"
+        android:layout_below="@+id/ticket_view_film"
+        android:layout_toEndOf="@+id/ticket_view_time" />
+
+    <TextView
+        android:text="16+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/grey_ground_background"
+        android:id="@+id/ticket_view_age" />
+
+    <TextView
+        android:text="Cost: 500p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ticket_view_hall"
+        android:layout_below="@id/ticket_view_hall"
+        android:id="@+id/ticket_view_cost" />
+
+    <TextView
+        android:text="Row: 1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/ticket_view_hall"
+        android:id="@+id/ticket_view_row" />
+
+    <TextView
+        android:text="Place: 10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/ticket_view_film"
+        android:layout_toEndOf="@+id/ticket_view_row"
+        android:id="@+id/ticket_view_place" />
+
+    <TextView
+        android:text="12:00"
+        android:background="@drawable/grey_ground_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ticket_view_time"
+        android:layout_alignBaseline="@+id/ticket_view_hall"
+        android:layout_alignBottom="@+id/ticket_view_hall"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

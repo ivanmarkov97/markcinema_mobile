@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="250dp">
+
+    <ImageView
+        android:id="@+id/film_item_film_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <RelativeLayout
+        android:id="@+id/film_item_film_container"
+        android:layout_width="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text=""
+            android:textColor="@android:color/white"
+            android:background="@drawable/grey_ground_background"
+            android:textSize="14sp"
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/film_item_film_age" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/grey_ground_background"
+            android:alpha="0.7"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true">
+
+
+            <TextView
+                android:text="FILMDURATION"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/film_item_film_duration"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/film_item_film_genre" />
+
+            <TextView
+                android:text="FILMGENRE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:id="@+id/film_item_film_genre"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/film_item_name" />
+
+            <TextView
+                android:text="FILMNAME"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/film_item_name"
+                android:layout_marginLeft="10dp"
+                android:layout_above="@+id/film_item_film_duration"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

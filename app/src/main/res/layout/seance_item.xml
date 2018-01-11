@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginBottom="1dp"
+    android:background="@color/seanceItemBackground">
+
+    <TextView
+        android:text="500 P"
+        android:id="@+id/seance_item_cost"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="00:00"
+        android:id="@+id/seance_item_time"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:background="@drawable/grey_ground_background"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Avengers: Infinity War"
+        android:id="@+id/seance_item_film_name"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_alignTop="@+id/seance_item_cost"
+        android:layout_toEndOf="@+id/seance_item_time" />
+
+    <TextView
+        android:text="Small hall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/seance_item_hall_name"
+        android:layout_below="@+id/seance_item_cost"
+        android:layout_alignStart="@+id/seance_item_film_name" />
+
+</RelativeLayout>

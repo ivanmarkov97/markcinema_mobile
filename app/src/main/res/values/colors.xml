@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#374044</color>
+    <color name="colorPrimaryDark">#C62828</color>
+    <color name="colorAccent">#374044</color>
+    <color name="backgroundDefault">#303030</color>
+    <color name="seanceItemBackground">#374044</color>
+    <color name="mainTheme">#E53935</color>
+</resources>
