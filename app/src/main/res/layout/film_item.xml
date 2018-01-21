@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
     android:layout_width="match_parent"
     android:layout_height="250dp">
 
@@ -11,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
+        android:layout_marginBottom="50dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <RelativeLayout

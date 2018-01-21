@@ -45,6 +45,14 @@ public class ShowFilmActivity extends AppCompatActivity {
     OkHttpHandlerFilmLoad okHttpHandlerFilmLoad;
     OkHttpHandlerSeanceLoad okHttpHandlerSeanceLoad;
     LinearLayout linearLayoutContainer;
+    int [] urls = {
+            R.drawable.thor_ava,
+            R.drawable.avangers,
+            R.drawable.logan_ava,
+            R.drawable.move_up
+    };
+
+    int url = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +64,8 @@ public class ShowFilmActivity extends AppCompatActivity {
 
         intent = getIntent();
         film_id = intent.getIntExtra("film_id", 0);
+
+        url = intent.getIntExtra("pos", 0);
 
         requestFilm = new Request.Builder()
                 .url("http://10.0.3.2:8000/films/" + film_id)
@@ -78,10 +88,14 @@ public class ShowFilmActivity extends AppCompatActivity {
 
         Context context;
         int id = 0;
+        int[] ids;
         String[] times;
         int cost = 0;
+        int[] costs;
         String hall = "";
+        String[] halls;
         String mfilm = "";
+        String[] mfilms;
         JSONObject reader;
 
         public OkHttpHandlerSeanceLoad(Context context) {
@@ -95,41 +109,64 @@ public class ShowFilmActivity extends AppCompatActivity {
                 reader = new JSONObject(s);
                 JSONArray data = reader.getJSONArray("data");
                 times = new String[data.length()];
+                ids = new int[data.length()];
+                costs = new int[data.length()];
+                halls = new String[data.length()];
+                mfilms = new String[data.length()];
                 LayoutInflater inflater = getLayoutInflater();
                 for(int i = 0; i < data.length(); i++){
                     try{
                         id = data.getJSONObject(i).getInt("id");
+                        ids[i] = data.getJSONObject(i).getInt("id");
                         times[i] = data.getJSONObject(i).getString("time");
                         cost = data.getJSONObject(i).getInt("cost");
+                        costs[i] = data.getJSONObject(i).getInt("cost");
                         hall = data.getJSONObject(i).getString("hall");
+                        halls[i] = data.getJSONObject(i).getString("hall");
                         mfilm = data.getJSONObject(i).getString("film");
+                        mfilms[i] = data.getJSONObject(i).getString("film");
 
-                        if(film.getName().equals(mfilm)) {
+                        Log.d("MyTAG", halls[i]);
+
+                        if(film.getName().equals(mfilms[i])) {
+
+                            Log.d("MyTAG", "My HALL == " + halls[i]);
 
                             seances.add(new Seance(
-                                    id,
+                                    /*id,
                                     times[i],
                                     cost,
                                     hall,
-                                    mfilm
+                                    mfilm*/
+                                    ids[i],
+                                    times[i],
+                                    costs[i],
+                                    halls[i],
+                                    mfilms[i]
                             ));
+
+                            final int j = i;
+                            Log.d("MyTAG", "MY J " + j);
+                            Log.d("MyTAG", "MY J HALL " + halls[j]);;
 
                             View view = inflater.inflate(R.layout.seance_item, linearLayoutContainer, false);
                             view.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+                                    Log.d("MyTAG", "seance_id " + ids[j]);
                                     Intent intent = new Intent(getApplicationContext(), ChooseTicketActivity.class);
-                                    intent.putExtra("seance_id", id);
-                                    intent.putExtra("hall_name", hall);
-                                    intent.putExtra("cost", cost);
-                                    intent.putExtra("time", seances.get(seances.size() - 1).getTime());
+                                    intent.putExtra("seance_id", ids[j]);
+                                    intent.putExtra("hall_name", halls[j]);
+                                    intent.putExtra("cost", costs[j]);
+                                    intent.putExtra("time", times[j]);
                                     startActivity(intent);
                                 }
                             });
-                            ((TextView) view.findViewById(R.id.seance_item_film_name)).setText(mfilm);
-                            ((TextView) view.findViewById(R.id.seance_item_hall_name)).setText(hall);
-                            ((TextView) view.findViewById(R.id.seance_item_cost)).setText(String.valueOf(cost) + " P");
+                            ((TextView) view.findViewById(R.id.seance_item_film_name)).setText(mfilms[i]);
+                            ((TextView) view.findViewById(R.id.seance_item_hall_name)).setText(halls[i]);
+                            ((TextView) view.findViewById(R.id.seance_item_cost)).setText(String.valueOf(costs[i]) + " P");
                             ((TextView) view.findViewById(R.id.seance_item_time)).setText(times[i].substring(10, 16));
+                            ((TextView) view.findViewById(R.id.seance_item_date)).setText(times[i].substring(0,10));
                             linearLayoutContainer.addView(view);
                         }
                     }catch (JSONException e){
@@ -203,7 +240,8 @@ public class ShowFilmActivity extends AppCompatActivity {
                     );
 
                     okHttpHandlerSeanceLoad.execute();
-                    Picasso.with(context).load("http://10.0.3.2:8000" + image).into(imageView);
+                    //Picasso.with(context).load("http://10.0.3.2:8000" + image).into(imageView);
+                    Picasso.with(context).load(urls[url]).into(imageView);
                 } catch (JSONException e){
                     ;
                 }

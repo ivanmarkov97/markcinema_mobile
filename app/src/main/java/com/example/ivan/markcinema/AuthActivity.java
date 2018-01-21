@@ -109,8 +109,8 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             progressDialog.hide();
-            //Toast.makeText(context, s, Toast.LENGTH_LONG).show();
-            if(s.equals("Home page")){
+            Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+            if(!s.equals("ERROR auth/login")){
                 startActivity(new Intent(context, MainActivity.class));
                 finish();
             }

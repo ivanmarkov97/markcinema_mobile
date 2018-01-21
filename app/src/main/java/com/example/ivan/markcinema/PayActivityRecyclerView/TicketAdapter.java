@@ -12,6 +12,8 @@ import com.example.ivan.markcinema.R;
 
 import java.util.ArrayList;
 
+import static android.support.v7.recyclerview.R.styleable.RecyclerView;
+
 /**
  * Created by Ivan on 05.01.2018.
  */

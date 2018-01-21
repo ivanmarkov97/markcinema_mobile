@@ -16,6 +16,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static android.support.v7.recyclerview.R.styleable.RecyclerView;
+
 /**
  * Created by Ivan on 27.12.2017.
  */
@@ -25,6 +27,12 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
     ArrayList<Film> films;
     Context context;
 
+    int [] urls = {
+        R.drawable.thor_ava,
+        R.drawable.avangers,
+            R.drawable.logan_ava,
+            R.drawable.move_up
+    };
     public FilmAdapter(ArrayList<Film> films, Context context) {
         this.films = films;
         this.context = context;
@@ -45,15 +53,19 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
         holder.filmGenre.setText(film.getGenre());
 
         Picasso.with(context)
-                .load("http://10.0.3.2:8000" + film.getImage())
-                //.load("https://lh5.ggpht.com/QYb54FLNm_SrW87Vj_4efngn-BH2yy4MlrJKUfWTUNJEd5nQ9ozEiCxtnV_X7kJBpNU=h900")
+                //.load("http://10.0.3.2:8000" + film.getImage())
+                .load(urls[position])
+                .error(R.mipmap.ic_launcher)
                 .into(holder.imageView);
+
+
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ShowFilmActivity.class);
                 intent.putExtra("film_id", film.getId());
+                intent.putExtra("pos", position);
                 v.getContext().startActivity(intent);
             }
         });

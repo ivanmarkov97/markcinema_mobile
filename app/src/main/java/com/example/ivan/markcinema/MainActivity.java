@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     FilmAdapter filmAdapter;
     ArrayList<Film> films = new ArrayList<>();
     OkHttpClient client = new OkHttpClient();
-    RequestBody requestBody;
+    //RequestBody requestBody;
     Request request;
     ProgressDialog progressDialog;
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
